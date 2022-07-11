@@ -73,7 +73,7 @@ io.on("connection", (socket) => {
   });
 
 //getting port number
-const PORT = settings['PORT'] || process.env.PORT
+const PORT = process.env.PORT || settings['PORT']
 
 server.listen( PORT, () => 
     console.log(`!!! server is running on ${PORT}`)
