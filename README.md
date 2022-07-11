@@ -34,6 +34,13 @@ http://localhost:3000/
 
 This is all for the setup. But there is also a settings.json file included in this package which you can tamper with and reflect changes on the app.
 
+## Deployed Sample
+I deployed this app on heroku therefore you can test or play with the app on the URL below:
+
+> [https://chat-a-live.herokuapp.com/](https://chat-a-live.herokuapp.com/)
+
+> **NOTE:** since I haven't yet integrated a database in it, so no messages will be stored anywhere and all the chat history will be oblierated from existence once you close the tab or refreash the page.
+
 ## Next Steps
 - I'm going to implement a `mongoDB` Database in it for storage of messages.
 - Then I'll try to use `Apache Kafka` for scalability of the application.
