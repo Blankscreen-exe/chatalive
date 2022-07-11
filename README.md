@@ -4,7 +4,7 @@
 It is a chat application which uses node.js, socket.io and express. This is just a prototype of a discussion/group chats which uses the concept of chat rooms.
 > Tutorial can be found [here](https://www.youtube.com/watch?v=jD7FnbI76Hg)
 
-## How to setup
+## How To Setup
 Since it uses `Node.js` therefore you will need to install that onto your machine. 
 > You can get Node.js from [here](https://nodejs.org/en/)
 
@@ -27,8 +27,17 @@ npm run dev
 ```
 which will start the app using `nodemon`.
 
+Your app will be present on the following url:
+```
+http://localhost:3000/
+```
+
 This is all for the setup. But there is also a settings.json file included in this package which you can tamper with and reflect changes on the app.
 
 ## Next Steps
 - I'm going to implement a `mongoDB` Database in it for storage of messages.
 - Then I'll try to use `Apache Kafka` for scalability of the application.
+- And of course there are alot of things which can be improved. so I will be working on that as well.
+
+## Preview
+![sample_preview_for_men_of_culture](./doc/images/preview_1.jpg)
