@@ -5,12 +5,12 @@ const express = require('express');
 const socketio = require('socket.io');
 const formatMessage = require("./utils/messages");
 const {userJoin,getCurrentUser,userLeave,getRoomUsers} = require("./utils/users");
+const { SocketAddress } = require('net');
 
 //getting bot name
-const envVars = require('./env.json');
-const { SocketAddress } = require('net');
-const env =  JSON.parse(JSON.stringify(envVars));
-const botName = env['botName'];
+const setVars = require('./settings.json');
+const settings =  JSON.parse(JSON.stringify(setVars));
+const botName = settings['botName'];
 
 //creating an express object
 const app = express();
@@ -19,28 +19,6 @@ const io = socketio(server);
 
 //setting path to static files
 app.use(express.static(path.join(__dirname, 'public')));
-
-// //run when client connects
-// io.on('connection', socket => {
-//     //catch room and username
-//     socket.on('joinRoom', ({username, room}) => {});
-
-//     console.log('!!! New WS connection ');
-//     //welcome the user
-//     socket.emit('message', formatMessage(botName,'Welcome to Chat-A-Live'));
-//     socket.broadcast.emit('message',  formatMessage(botName,'Welcome to Chat-A-Live'));
-
-//     //runs when a client disconnects
-//     socket.on('disconnect', () => {
-//         io.emit('message', formatMessage(botName,'Welcome to Chat-A-Live'));
-//     });
-
-//     //listens for chat messages
-//     socket.on('chatMessage', (msg) => {
-//         // console.log(`>> ${msg}`);
-//         io.emit("message",formatMessage('USER',msg));
-//     });
-// });
 
 // Run when client connects
 io.on("connection", (socket) => {
@@ -95,7 +73,7 @@ io.on("connection", (socket) => {
   });
 
 //getting port number
-const PORT = env['PORT'] || process.env.PORT
+const PORT = settings['PORT'] || process.env.PORT
 
 server.listen( PORT, () => 
     console.log(`!!! server is running on ${PORT}`)
